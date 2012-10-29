@@ -21,6 +21,7 @@ function prefs_auth_list()
 				'ldap' => tra('Tiki and LDAP'),
 				'cas' => tra('CAS (Central Authentication Service)'),
 				'shib' => tra('Shibboleth'),
+				'ssp' => tra('SAML2 (based on simpleSAMLphp)'),
 				'ws' => tra('Web Server'),
 				'phpbb' => tra('phpBB'),
 			),

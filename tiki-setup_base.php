@@ -399,6 +399,21 @@ if ($prefs['auth_method'] == 'shib' and isset($_SERVER['REMOTE_USER'])) {
 	}
 }
 
+// Check for SAML Login
+
+// Logic to keep admin users inside 
+
+
+if ($prefs['auth_method'] == 'ssp') {
+	$already_logged_as_admin = isset($_SESSION["$user_cookie_site"]) && $_SESSION["$user_cookie_site"] == 'admin';
+	$clicked_on_saml_link = array_key_exists('auth', $_REQUEST) && $_REQUEST['auth'] == 'saml2';
+	$force_saml_login = !($prefs['ssp_skip_admin'] == 'y');
+	if ($clicked_on_saml_link || ($force_saml_login && !$already_logged_as_admin)) {
+        	$userlib->validate_user("", "", "", "");
+	}
+}
+
+
 $userlib->check_cas_authentication($user_cookie_site);
 
 // if the username is already saved in the session, pull it from there

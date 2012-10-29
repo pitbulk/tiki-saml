@@ -104,6 +104,11 @@ $("#loginbox-{{$module_logo_instance}}").submit( function () {
 		{if $prefs.shib_skip_admin eq 'y'}
 			<br /><a class="linkmodule" href="tiki-login_scr.php?user=admin">{tr}Log in as admin{/tr}</a>
 		{/if}
+       {elseif $prefs.auth_method eq 'ssp' && $showloginboxes neq 'y'}
+                <b><a class="linkmodule" href="tiki-login.php?auth=saml2">{tr}Log in through SAML2 IdP{/tr}</a></b>
+                {if $prefs.ssp_skip_admin eq 'y'}
+                        <br /><a class="linkmodule" href="tiki-login_scr.php?user=admin">{tr}Log in as admin{/tr}</a>
+                {/if}
 	{else}
 		{assign var='close_tags' value=''}
 		<form name="loginbox" id="loginbox-{$module_logo_instance}" action="{if $prefs.https_login eq 'encouraged' || $prefs.https_login eq 'required' || $prefs.https_login eq 'force_nocheck'}{$base_url_https}{/if}{$prefs.login_url}"

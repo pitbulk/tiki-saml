@@ -291,7 +291,17 @@ class UsersLib extends TikiLib
 
 		if ($prefs['auth_method'] === 'ws') {
 			header('Location: ' . str_replace('//', '//admin:@', $url)); // simulate a fake login to logout the user
-		} else {
+		}
+		if ($prefs['auth_method'] === 'ssp' && $prefs['ssp_global_logout'] == 'y') {
+			$ssp_instance = $this->get_ssp_instance(true);
+			if(isset($ssp_instance)) {
+				if($ssp_instance->isAuthenticated()) {
+					$ssp_instance->logout();
+				}
+			}
+			header('Location: ' . $url);
+		}
+		 else {
 			header('Location: ' . $url);
 		}
 		return;
@@ -332,6 +342,49 @@ class UsersLib extends TikiLib
 						array($user, $hash)
 		);
 	}
+
+	// SAML2 based on simpleSAMLphp function, load library and get a ssp auth instance
+	function get_ssp_instance($ignore_errors=false) {
+		global $prefs;
+		$ssp_instance = NULL;
+
+		if(array_key_exists('ssp_path', $prefs) && isset($prefs['ssp_path'])) {
+			$ssp_path = $prefs['ssp_path'];
+			if(!substr($ssp_path, -1) !== '/') {
+				$ssp_path .= '/';
+			}
+		}
+		else {
+			$errmsg = 'SP Path required';
+		}
+
+		if(!isset($errmsg) && array_key_exists('ssp_source', $prefs) && isset($prefs['ssp_source'])) {
+			$ssp_source = $prefs['ssp_source'];
+		}
+		else {
+			$errmsg = 'SP Source required';
+		}
+
+		if(!isset($errmsg) && array_key_exists('ssp_usernamemap', $prefs) && isset($prefs['ssp_usernamemap'])) {
+			$ssp_usernamemap = $prefs['ssp_usernamemap'];
+		}
+		else {
+			$errmsg = 'Username attribute map required';
+		}
+
+		if(isset($errmsg)) {
+			if (!$ignore_errors) {
+				die($errmsg);
+			}
+		}
+		else {
+			require_once($ssp_path.'lib/_autoload.php');
+			$ssp_instance = new SimpleSAML_Auth_Simple($ssp_source);
+		}
+		return $ssp_instance;
+
+	}
+
 
 	// For each auth method, validate user in auth, if valid, verify tiki user exists and create if necessary (as configured)
 	// Once complete, update_lastlogin and return result, username and login message.
@@ -377,9 +430,18 @@ class UsersLib extends TikiLib
 		$shib_create_tiki = ($prefs['shib_create_user_tiki'] == 'y');
 		$shib_skip_admin = ($prefs['shib_skip_admin'] == 'y');
 
+
+		// see if we are to use SAML2 based on simpleSAMLphp
+
+                $auth_ssp = ($prefs['auth_method'] == 'ssp');
+                $ssp_create_tiki = ($prefs['ssp_create_user_tiki'] == 'y');
+                $ssp_skip_admin = ($prefs['ssp_skip_admin'] == 'y');
+
+
 		// first attempt a login via the standard Tiki system
 		//
-		if (!($auth_shib || $auth_cas) || $user == 'admin') { //redflo: does this mean, that users in cas and shib are not replicated to tiki tables? Does this work well?
+
+		if (!($auth_shib || $auth_cas || $auth_ssp) || $user == 'admin') { //redflo: does this mean, that users in cas, ssp and shib are not replicated to tiki tables? Does this work well?
 			list($result, $user) = $this->validate_user_tiki($user, $pass, $challenge, $response, $validate_phase);
 		} else {
 			$result = NULL;
@@ -399,10 +461,11 @@ class UsersLib extends TikiLib
 		// if we are using tiki auth or if we're using an alternative auth except for admin
 
 		// todo: bad hack. better search for a more general solution here
-		if ((!$auth_ldap && !$auth_pam && !$auth_cas && !$auth_shib && !$auth_phpbb)
+		if ((!$auth_ldap && !$auth_pam && !$auth_cas && !$auth_shib && !$auth_ssp  && !$auth_phpbb)
 				|| (
 						( ($auth_ldap && $skip_admin)
 							|| ($auth_shib && $shib_skip_admin)
+							|| ($auth_ssp && $ssp_skip_admin)
 							|| ($auth_pam && $pam_skip_admin)
 							|| ($auth_cas && $cas_skip_admin)
 							|| ($auth_phpbb && $phpbb_skip_admin)
@@ -725,6 +788,83 @@ class UsersLib extends TikiLib
 			// if the user was logged into Auth and found in Tiki (no password in Tiki user table necessary)
 			elseif ($userLdap && $userTikiPresent)
 				return array($this->sync_and_update_lastlogin($user, $pass), $user, $result);
+
+		} elseif ($auth_ssp) {
+			// next see if we need to check SAML2 based on simpleSAMLphp
+
+			$ssp_instance = $this->get_ssp_instance(false);
+
+			$ssp_instance->requireAuth();
+		
+			$ssp_attributes =  $ssp_instance->getAttributes();
+
+                        if(array_key_exists('ssp_usernamemap', $prefs) && isset($prefs['ssp_usernamemap'])) {
+                                $ssp_usernamemap = $prefs['ssp_usernamemap'];
+                        }
+                        else {
+                                $errmsg = 'Username attribute map required';
+                                die($errmsg);
+                        }
+
+
+			if(!array_key_exists($ssp_usernamemap, $ssp_attributes) || empty($ssp_attributes[$ssp_usernamemap])) {
+				$errmsg = $ssp_usernamemap. ' not found at the SAML2 attribute assertion';
+				die($errmsg);
+			}
+			else {
+				$username = $ssp_attributes[$ssp_usernamemap][0];
+				$cookie_site = preg_replace("/[^a-zA-Z0-9]/", "", $prefs['cookie_name']);
+				$user_cookie_site = 'tiki-user-' . $cookie_site;
+				$_SESSION["$user_cookie_site"] = $username;
+			}
+
+                        if ($this->user_exists($username)) {
+                                $userTikiPresent = true;
+                        } else {
+                                $userTikiPresent = false;
+                        }
+
+			if (!$userTikiPresent && !$ssp_create_tiki) {
+				$msg = 'The user [ ' . $username . ' ] is not registered with this wiki and autocreate is disabled.';
+				die($msg);
+			}
+			
+			$randompass = $this->genPass();
+		
+			$ssp_mail = '';
+			if(array_key_exists('ssp_mailmap', $prefs) && array_key_exists($prefs['ssp_mailmap'], $ssp_attributes) && !empty($ssp_attributes[$prefs['ssp_mailmap']])) {
+				$ssp_mail = $ssp_attributes[$prefs['ssp_mailmap']][0];
+			}
+
+			if(!$userTikiPresent) {
+				// Create user
+				$result = $this->add_user($username, $randompass, $ssp_mail);
+
+				if ($result == USER_VALID) {
+					$result = false;
+					if(array_key_exists('ssp_usernamemap', $prefs) && isset($prefs['ssp_usernamemap'])) {
+						$ssp_usernamemap = $prefs['ssp_usernamemap'];
+						if(!array_key_exists($ssp_usernamemap, $ssp_attributes) || empty($ssp_attributes[$ssp_usernamemap])) {
+								$result = $this->assign_user_to_group($username, $ssp_attributes[$ssp_usernamemap][0]);
+						}
+					}
+					if(!$result) {
+						// Add to the default Group
+						if ($prefs['ssp_usegroup'] == 'y') {
+							$result = $this->assign_user_to_group($username, $prefs['ssp_group']);
+                	                        }
+					}
+                                        // before we log in, update the login counter
+                                        return array($this->sync_and_update_lastlogin($username, $randompass), $username, $result);
+                                } else {
+					return array(false, $username, $result);
+				}
+			}
+			else {
+				// Update user
+				return array($this->sync_and_update_lastlogin($username, $randompass), $username, USER_VALID);
+			}
+
 
 		} elseif ($auth_phpbb) {
 			$result = $this->validate_user_phpbb($user, $pass);

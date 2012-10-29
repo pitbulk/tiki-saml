@@ -311,6 +311,33 @@
 			</fieldset>
 		{/tab}
 
+
+		{tab name="{tr}SAML2 (based on simpleSAMLphp){/tr}"}
+			<fieldset>
+				<legend>{tr}SAML2{/tr}{help url="AuthSAML" desc="{tr}based on simpleSAMLphp {/tr}"}</legend>
+				<input type="hidden" name="auth_ssp" />
+				{if $prefs.auth_method ne 'ssp'}
+					<div style="padding:0.5em;clear:both" class="simplebox">
+						<div>{icon _id=information} {tr}You must change the Authentication Method to SAML2 for these changes to take effect{/tr}.</div>
+				</div>
+				{/if}
+
+				{preference name=ssp_path}
+				{preference name=ssp_source}
+				{preference name=ssp_usernamemap}
+				{preference name=ssp_mailmap}
+				{preference name=ssp_create_user_tiki}
+				{preference name=ssp_skip_admin}
+				{preference name=ssp_global_logout}
+				{preference name=ssp_groupmap}
+				{preference name=ssp_usegroup}
+				<div class="adminoptionboxchild" id="ssp_usegroup_childcontainer">
+					{preference name=ssp_group}
+				</div>
+			</fieldset>
+		{/tab}
+
+
 		{tab name="{tr}CAS{/tr}"}
 			<input type="hidden" name="auth_cas" />
 			<fieldset>
