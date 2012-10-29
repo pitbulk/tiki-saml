@@ -292,7 +292,7 @@ class UsersLib extends TikiLib
 		if ($prefs['auth_method'] === 'ws') {
 			header('Location: ' . str_replace('//', '//admin:@', $url)); // simulate a fake login to logout the user
 		}
-		if ($prefs['auth_method'] === 'ssp' && $prefs['ssp_global_logout'] == 'y') {
+		else if ($prefs['auth_method'] === 'ssp' && $prefs['ssp_global_logout'] == 'y') {
 			$ssp_instance = $this->get_ssp_instance(true);
 			if(isset($ssp_instance)) {
 				if($ssp_instance->isAuthenticated()) {
