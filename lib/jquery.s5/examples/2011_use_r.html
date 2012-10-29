@@ -1,0 +1,973 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+  <title>2011 useR</title>
+  <link rel="stylesheet" href="../jquery.s5.css" />
+	<script type="text/javascript" src="../jquery-1.7.min.js"></script>
+	<script type="text/javascript" src="../jquery.s5.js"></script>
+	<script type="text/javascript">
+		$(function() {
+			$.s5.start({
+				basePath: "../"
+			});
+			
+			$('<a title="Export to PDF Loop" href="#"><img alt="Export to PDF" src="../images/page_go.png" /></a>')
+				.appendTo(".s5-menu")
+				.click(function() {
+					$.s5.exportPDF();
+				});
+		});
+	</script>
+	<title>ExampleSlideShow</title>
+</head>
+
+<body>
+  <div id="role_main">
+    <h1 id="Web_2.0_for_R_scripts_amp_workflows:_Tiki_amp_PluginR" class=
+    "showhide_heading">Web 2.0 for R scripts &amp; workflows: Tiki &amp; PluginR</h1>
+
+    <div>
+      Xavier de Pedro, Àlex Sánchez (UB, VHIR)- <a href=
+      "http://ueb.ir.vhebron.net/2011+UseR" class="wiki" target=
+      "_blank">http://ueb.ir.vhebron.net/2011+UseR</a><br />
+    </div><br />
+    <br />
+
+    <h1 id="Web_2.0_for_R_scripts_amp_workflows:_Tiki_amp_PluginR_-_UseR_2011" class=
+    "showhide_heading">Web 2.0 for R scripts &amp; workflows: Tiki &amp; PluginR
+    <em><span style="color:grey; background:">- UseR 2011</span></em></h1>
+
+    <div>
+      Xavier de Pedro Puente<strong>*</strong>, Ph.D; Àlex Sánchez Pla, Ph.D.<br />
+
+      <ul>
+        <li>Department of Statistics. Faculty of Biology. University of Barcelona
+        (UB).</li>
+
+        <li>Statistics and Bioinformatics Unit (UEB). Vall d'Hebron Research Institute
+        (VHIR).<br />
+        Catalonia. Spain<br />
+        <a href="http://ueb.ir.vhebron.net" class="wiki" target=
+        "_blank">http://ueb.ir.vhebron.net</a></li>
+      </ul><br />
+      <strong>*</strong> xavier.depedro<span style=
+      "color:red; background:">@</span>vhir.org<br />
+      <br />
+
+      <div class="simplebox">
+        <br />
+
+        <table class="wikitable">
+          <tbody>
+            <tr>
+              <td class="wikicell"><img width="200" class="fixedSize" alt="Image" src="http://ueb.ir.vhebron.net/tools/display13" /></td>
+
+              <td class="wikicell"><img width="200" class="fixedSize" alt="Image" src="http://ueb.ir.vhebron.net/tools/display16" /></td>
+            </tr>
+          </tbody>
+        </table><br />
+
+        <table class="wikitable">
+          <tbody>
+            <tr>
+              <td class="wikicell"><img width="200" class="fixedSize" alt="Image" src=
+              "http://ueb.ir.vhebron.net/tools/display14" /></td>
+
+              <td class="wikicell"><img width="200" class="fixedSize" alt="Image" src=
+              "http://ueb.ir.vhebron.net/tools/display15" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div><br />
+    </div><br />
+    <br />
+
+    <h1 id="Outline" class="showhide_heading">Outline</h1>
+
+    <div id="toc">
+      <ul class="toc">
+        <li><a class="link" href="#Introduction:_Our_goal">1. Introduction: Our
+        goal</a></li>
+
+        <li><a class="link" href="#Web_GUIs_for_R_i_:_many_but_apparently_unreliable">2.
+        Web GUIs for R (i): many but (apparently) unreliable</a></li>
+
+        <li><a class="link" href="#Web_GUIs_for_R_ii_:_similar_conclusions_by_others_">3.
+        Web GUIs for R (ii): similar conclusions by others*</a></li>
+
+        <li><a class="link" href=
+        "#Our_choice_i_:_Tiki_as_a_base_application_amp_framework">4. Our choice (i):
+        "Tiki" as a base application &amp; framework</a></li>
+
+        <li><a class="link" href="#Our_choice_ii_:_Tiki_PluginR_external_mod_">5. Our
+        choice (ii): Tiki + PluginR (external mod)</a></li>
+
+        <li><a class="link" href="#Examples">6. Examples</a></li>
+
+        <li><a class="link" href="#Similarities_between_R_amp_Tiki">7. <span style=
+        "color:blue; background:">Similarities</span> between R &amp; Tiki</a></li>
+
+        <li><a class="link" href="#Differences_between_R_amp_Tiki:_Software">8.
+        <span style="color:green; background:">Differences</span> between R &amp; Tiki:
+        <em>Software</em></a></li>
+
+        <li><a class="link" href="#Differences_between_R_amp_Tiki:_Community">9.
+        <span style="color:green; background:">Differences</span> between R &amp; Tiki:
+        <em>Community</em></a></li>
+
+        <li><a class="link" href="#Thanks._Questions_">10. Thanks. Questions?</a></li>
+
+        <li><a class="link" href="#References">11. References</a></li>
+      </ul><!--toc-->
+    </div><br />
+    <br />
+
+    <div>
+      <div class="simplebox">
+        <br />
+        <strong>Slides</strong>: <a href="http://ueb.ir.vhebron.net/2011+UseR" class=
+        "wiki" target="_blank">http://ueb.ir.vhebron.net/2011+UseR</a><br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <strong>Keywords</strong>: GUI, Web 2.0, Free/libre Software, Tiki Wiki CMS
+        Groupware, PluginR.<br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+        <br />
+
+        <div class="quoteheader">
+          Quote:
+        </div>
+
+        <div class="quotebody">
+          <strong>Abstract</strong><br />
+          The need to work with colleagues from other institutions is very common around
+          Academia and Science. Teams often find tools to communicate and coordinate with
+          other web platforms to improve collaboration across space and time. Although
+          analysis and visualization of data with R is becoming very popular, development
+          teams frequently look also for web-based graphical user interfaces for the end
+          users of those R scripts. The list of prototypes and publicly announced free
+          tools (R 2011) includes programs of all kinds. However, a quick review of these
+          tools led us to similar conclusion reached by other researchers such as
+          Saunders (2009): most of these programs seem to present problems in the short
+          to medium term. Those problems arise from the fact that either such programs no
+          longer work with current stable versions of standard and free web technology,
+          because its development seems to have been discontinued for years. Or because
+          they are too difficult to install or use for most scientists or people who are
+          not professionals in web technology. Therefore, we decided in our research
+          groups to contribute to the development of a relatively new approach, different
+          from the latest approaches presented in the latest years (Ooms 2009, Nakano and
+          Nakama 2009 and others): a plugin for Tiki Wiki CMS Groupware (also known as
+          &acirc;&euro;Tiki&acirc;&euro;), a mature collaborative web 2.0 framework
+          released as free/libre open source software, somewhat similar to the R
+          extension for Mediawiki, but with all the extra features from this
+          &acirc;&euro;&oelig;Tightly Integrated Knowledge
+          Infrastructure&acirc;&euro;&oelig; that Tiki represents), along with its
+          decentralized but truly successful development model (Tiki 2011). This new
+          PluginR (De Pedro 2011), has so far allowed the development of a Web
+          application of use in research on the Teaching and Learning field (De Pedro
+          <em>et al.</em> 2010), as well as to develop web interfaces for Basic Pipelines
+          in Bioinformatics for medical research (De Pedro &amp; Àlex Sánchez
+          2011). The communication will highlight the main advantages (and disadvantages)
+          found up to date with the use of Tiki + PluginR to solve many of the needs of
+          our research groups, including the new progresses achieved after the
+          presentation at the last Spanish R Users meeting (De Pedro &amp;
+          Àlex Sánchez 2010)
+        </div><br />
+      </div>
+    </div><br />
+    <br />
+
+    <h2 id="Introduction:_Our_goal" class="showhide_heading">1. Introduction: Our
+    goal</h2>
+
+    <div>
+      <br />
+
+      <ol>
+        <li>Web interfaces for R scripts (&amp; reports)<br />
+        <span style="color:&lt;em&gt;grey; background:">(~ Sweave or org-mode: mixing
+        templates with R code but with simpler syntax, for the crowds)</span></li>
+
+        <li>Using some multipurpose-versatile tool: for Bioinformatics and for anything
+
+          <ol>
+            <li>free/libre open source software (FLOSS)</li>
+
+            <li>multi-platform &amp; multi-browser</li>
+
+            <li>mature &amp; maintained software</li>
+
+            <li>documented</li>
+
+            <li>standard technology &amp; programing languages</li>
+
+            <li>extend-able by us or by others easily</li>
+
+            <li>versatile enough for multi-purpose with single learning curve,</li>
+
+            <li>quick &amp; easy web output or reports</li>
+          </ol>
+        </li>
+      </ol>
+    </div><br />
+    <br />
+
+    <h2 id="Web_GUIs_for_R_i_:_many_but_apparently_unreliable" class="showhide_heading">
+    2. Web GUIs for R (i): many but (apparently) unreliable</h2>
+
+    <div>
+      <br />
+
+      <ul>
+        <li>A few listed in R FAQ's, but...
+
+          <ul>
+            <li>most seem either unmaintained (= risky in the mid term)</li>
+
+            <li>or doesn't work anymore,</li>
+
+            <li>or too difficult (for an averaged researcher or technician)</li>
+          </ul>
+        </li>
+      </ul><br />
+      Reinvention of the wheel (once more)?<br />
+
+      <ul>
+        <li>diversity of designs: let evolution rule...<br />
+        (we ended up extended a previous development branch in php)</li>
+      </ul><br />
+      <img width="800" class="fixedSize" alt="Image" style=
+      "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display31" /><br />
+    </div><br />
+    <br />
+
+    <h2 id="Web_GUIs_for_R_ii_:_similar_conclusions_by_others_" class="showhide_heading">
+    3. Web GUIs for R (ii): similar conclusions by others*</h2>
+
+    <div>
+      <table id="fancytable_1" class="normal">
+        <thead>
+          <tr>
+            <th>Software</th>
+
+            <th>Brief notes</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td class="odd">Rweb</td>
+
+            <td class="odd">Page last updated 1999. Of the 3 example links on the page
+            one ran very slowly, the second not at all and the third is broken.</td>
+          </tr>
+
+          <tr>
+            <td class="even">R-Online</td>
+
+            <td class="even">Or rather, not online. Unless this CGI form is the same
+            thing. I tried Example 1, it returned a server error.</td>
+          </tr>
+
+          <tr>
+            <td class="odd">Rcgi</td>
+
+            <td class="odd">Links to several CGI forms, none of which worked for me.</td>
+          </tr>
+
+          <tr>
+            <td class="even">CGI-based R access</td>
+
+            <td class="even">Link did not load.</td>
+          </tr>
+
+          <tr>
+            <td class="odd">CGIwithR</td>
+
+            <td class="odd">Package now maintained at Omegahat. Did not attempt
+            installation. Last updated 2005.</td>
+          </tr>
+
+          <tr>
+            <td class="even">Rpad</td>
+
+            <td class="even">I could not connect to this URL.</td>
+          </tr>
+
+          <tr>
+            <td class="odd">RApache</td>
+
+            <td class="odd">The pick of the bunch. Provides server-side access to R
+            through an Apache module. I was able to install RApache on 32-bit (but not
+            64-bit) Ubuntu 9.10 and get it running. Could use more documentation.</td>
+          </tr>
+
+          <tr>
+            <td class="even">Rserve</td>
+
+            <td class="even">Serves R via TCP/IP. Last updated 2006.</td>
+          </tr>
+
+          <tr>
+            <td class="odd">OpenStatServer</td>
+
+            <td class="odd">Broken link. No longer exists, so far as I can tell.</td>
+          </tr>
+
+          <tr>
+            <td class="even">R PHP Online</td>
+
+            <td class="even">Link out of date (but you can follow it to the newer page).
+            Last updated 2003, so unlikely to be much use.</td>
+          </tr>
+
+          <tr>
+            <td class="odd">R-php</td>
+
+            <td class="odd">Last updated 2006; the example that I tried gave a server
+            error.</td>
+          </tr>
+
+          <tr>
+            <td class="even">webbioc</td>
+
+            <td class="even">A Bioconductor package. Did not investigate further.</td>
+          </tr>
+
+          <tr>
+            <td class="odd">Rwui</td>
+
+            <td class="odd">An application to create R web interfaces. My browser hung at
+            'waiting for cache'. I gave up.</td>
+          </tr>
+        </tbody>
+      </table><br />
+
+      <div style="text-align: center;">
+        * Table 1. From Neil Saunders, personal communication in his blog
+      </div><br />
+    </div><br />
+    <br />
+
+    <h2 id="Our_choice_i_:_Tiki_as_a_base_application_amp_framework" class=
+    "showhide_heading">4. Our choice (i): "Tiki" as a base application &amp;
+    framework</h2>
+
+    <div>
+      Tiki: "<strong>Tightly Integrated Knowledge Infrastructure</strong>" (<a rel=
+      "external nofollow" href="http://tiki.org" target="_blank" class=
+      "wiki external">tiki.org</a>)<br />
+      <br />
+
+      <div align="center">
+        <table class="wikitable">
+          <tbody>
+            <tr>
+              <td class="wikicell"><img class="fixedSize" alt="Image" src=
+              "http://ueb.ir.vhebron.net/tools/display3" /></td>
+
+              <td class="wikicell"><img width="500" class="fixedSize" alt="Image" src=
+              "http://ueb.ir.vhebron.net/tools/display2" /></td>
+            </tr>
+          </tbody>
+        </table>
+      </div><br />
+      <br />
+    </div><br />
+    <br />
+
+    <h2 id="Our_choice_ii_:_Tiki_PluginR_external_mod_" class="showhide_heading">5. Our
+    choice (ii): Tiki + PluginR (external mod)</h2>
+
+    <div>
+      <br />
+      <img width="1000" class="fixedSize" alt="Image" src="http://ueb.ir.vhebron.net/tools/display38" /><br />
+      <img width="1000" class="fixedSize" alt="Image" src="http://ueb.ir.vhebron.net/tools/display40" /><br />
+      <img width="1000" class="fixedSize" alt="Image" src="http://ueb.ir.vhebron.net/tools/display41" /><br />
+    </div><br />
+    <br />
+    <br />
+    <br />
+
+    <h2 id="Examples" class="showhide_heading">6. Examples</h2>A few examples of usage
+    follow after the parameter list.<br />
+
+    <h4 id="PluginR_params" class="showhide_heading">PluginR params</h4><img width="1000"
+    class="fixedSize" alt="Image" style=
+    "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display30" /><br />
+    <br />
+    <br />
+
+    <h3 id="Example_1a_-_Hello_world_Basic_R_syntax_" class="showhide_heading">Example 1a
+    - "Hello world" (Basic R syntax)</h3><br />
+    <img class="fixedSize" alt="Image" style=
+    "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display33" /><br />
+    <br />
+
+    <h3 id="Example_1b_-_Hello_world_Basic_R_syntax_" class="showhide_heading">Example 1b
+    - "Hello world" (Basic R syntax)</h3><br />
+    <img width="1000" class="fixedSize" alt="Image" style=
+    "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display34" /><br />
+    <br />
+
+    <h3 id="Example_1c:_Risky_calls_" class="showhide_heading">Example 1c: "Risky"
+    calls?</h3><br />
+    <img width="1000" class="fixedSize" alt="Image" style=
+    "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display35" /><br />
+    <br />
+
+    <h3 id="Example_1c:_Risky_calls_-_only_after_RR_amp_admin_validation" class=
+    "showhide_heading">Example 1c: "Risky" calls - only after RR &amp; admin
+    validation</h3><br />
+    <img width="1000" class="fixedSize" alt="Image" style=
+    "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display36" /><br />
+    <br />
+
+    <h3 id="Example_2_-_PluginR_with_optional_params" class="showhide_heading">Example 2
+    - PluginR with (optional) params</h3><br />
+    <img width="1000" class="fixedSize" alt="Image" style=
+    "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display37" /><br />
+    <br />
+
+    <h3 id="Example_3_-_R_Scripts:_Web-based_Easy_Heatmaps" class="showhide_heading">
+    Example 3 - R Scripts: Web-based Easy Heatmaps</h3>
+
+    <div>
+      <img width="500" class="fixedSize" alt="Image" style=
+      "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display8" /><br />
+      <img width="800" class="fixedSize" alt="Image" style=
+      "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display10" /><br />
+
+      <div style="text-align: center;">
+        <a rel="external nofollow" href=
+        "http://www.hiv.lanl.gov/content/sequence/HEATMAP/heatmap.html?sample_input=1&amp;log_data=$log_data_checked"
+        target="_blank" class=
+        "wiki external">http://www.hiv.lanl.gov/content/sequence/HEATMAP/heatmap.html?sample_input=1&amp;log_data=$log_data_checked</a>
+      </div><br />
+    </div><br />
+    <br />
+
+    <h3 id="Ex._3_What_we_have_need_amp_do." class="showhide_heading">(Ex. 3) What we
+    have, need &amp; do.</h3>
+
+    <div class="halffloat clearfix">
+      <div class="box">
+        <div class="titlebar">
+          <div style="text-align: center;">
+            We have
+          </div>
+        </div>
+
+        <ol>
+          <li>Heatmaps R package (local or remote *.tgz)</li>
+
+          <li>R script to use functions from the package and to produce some figure
+          and/or report</li>
+        </ol>
+
+        <div class="titlebar">
+          <div style="text-align: center;">
+            We need
+          </div>
+        </div>
+
+        <ol>
+          <li>Table describing parameters which need to be fed to R by the web
+          interface</li>
+
+          <li>Tiki (FLOSS Web 2.0 engine) + PluginR set up on a server.</li>
+        </ol>
+      </div>
+
+      <div class="box">
+        <div class="titlebar">
+          <div style="text-align: center;">
+            We do
+          </div>
+        </div><br />
+
+        <ol>
+          <li>Convert html table and its rows into a Tiki tracker and its fields (web
+          database with forms and reports).</li>
+
+          <li>Create a simple Wiki page to
+
+            <ol>
+              <li>display a form to collect the data from the user for the Tracker</li>
+
+              <li>display a list of items already created in that tracker</li>
+            </ol>
+          </li>
+
+          <li>Validate the potentially unsafe R calls from wiki pages (admin or user with
+          enough permissions required)</li>
+
+          <li>Create a Smarty template (~ Sweave template but for web pages) to combine
+          Tracker data (input from the user stored in a tracker)</li>
+
+          <li>Edit the simple wiki page to convert it into a Pretty Tracker page for the
+          report display (instead of simple table with tracker data)</li>
+
+          <li>Feed the web interface and see the results</li>
+        </ol>
+      </div>
+    </div><br />
+    <br />
+
+    <h3 id="Ex._3_Web_HeatMaps_i_:_descriptive_table" class="showhide_heading">(Ex. 3)
+    Web HeatMaps (i): descriptive table</h3><br />
+    <img width="1000" class="fixedSize" alt="Image" style=
+    "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display11" /><br />
+    <br />
+
+    <h3 id="Ex._3_Web_HeatMaps_ii_:_Tracker_amp_fields" class="showhide_heading">(Ex. 3)
+    Web HeatMaps (ii): Tracker &amp; fields</h3><br />
+    <img width="1000" class="fixedSize" alt="Image" style=
+    "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display21" /><br />
+    <br />
+
+    <h3 id="Web_HeatMaps_iii_:_descriptive_table_with_tracker_field_Ids" class=
+    "showhide_heading">6.1. Web HeatMaps (iii): descriptive table with <em>tracker field
+    Ids</em></h3><br />
+    <img width="1000" class="fixedSize" alt="Image" style=
+    "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display29" /><br />
+    <br />
+
+    <h3 id="Ex._3_Web_HeatMaps_iv_:_Wiki_page1_HeatMaps_code_" class="showhide_heading">
+    (Ex. 3) Web HeatMaps (iv): Wiki page1 "HeatMaps" (code)</h3><br />
+    <img width="1000" class="fixedSize" alt="Image" style=
+    "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display22" /><br />
+    <br />
+
+    <h3 id="Ex._3_Web_HeatMaps_v_:_Wiki_page1_HeatMaps_output_" class="showhide_heading">
+    (Ex. 3) Web HeatMaps (v): Wiki page1 "HeatMaps" (output)</h3><br />
+    <img width="1000" class="fixedSize" alt="Image" style=
+    "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display23" /><br />
+    <br />
+
+    <h3 id="Ex._3_Web_HeatMaps_vi_:_Wiki_page2_HeatMaps_Edition_code_" class=
+    "showhide_heading">(Ex. 3) Web HeatMaps (vi): Wiki page2 "HeatMaps Edition"
+    (code)</h3><br />
+    <img width="1000" class="fixedSize" alt="Image" style=
+    "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display24" /><br />
+    <br />
+
+    <h3 id="Ex._3_Web_HeatMaps_vii_:_Wiki_page3_HeatMaps_Template_code_" class=
+    "showhide_heading">(Ex. 3) Web HeatMaps (vii): Wiki page3 "HeatMaps Template"
+    (code)</h3><br />
+    <img width="1000" class="fixedSize" alt="Image" style=
+    "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display25" /><br />
+    <br />
+
+    <h3 id="Ex._3_Web_HeatMaps_viii_:_Creating_a_figure" class="showhide_heading">(Ex. 3)
+    Web HeatMaps (viii): Creating a figure</h3><br />
+    <img width="1000" class="fixedSize" alt="Image" style=
+    "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display26" /><br />
+    <br />
+
+    <h3 id="Ex._3_Web_HeatMaps_ix_:_Results_and_edition" class="showhide_heading">(Ex. 3)
+    Web HeatMaps (ix): Results and edition</h3><br />
+    <img width="1000" class="fixedSize" alt="Image" style=
+    "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display27" /><br />
+    <br />
+
+    <h3 id="Tiki_amp_PluginR_internals" class="showhide_heading">6.2. Tiki &amp; PluginR
+    internals</h3>
+
+    <div>
+      <br />
+      <img width="900" class="fixedSize" alt="Image" style=
+      "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display5" /><br />
+    </div><br />
+    <br />
+
+    <h3 id="Example_4_-_Microarray_Pipe_Line_Workflow" class="showhide_heading">6.3.
+    Example 4 - Microarray Pipe Line Workflow</h3>
+
+    <div>
+      <br />
+      <img width="800" class="fixedSize" alt="Image" style=
+      "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display17" /><br />
+    </div><br />
+    <br />
+
+    <h3 id="Example_5_-_Other_Goodies_i_:_Website_for_local_R_community_ES_" class=
+    "showhide_heading">6.4. Example 5 - Other Goodies (i): Website for "local" R
+    community (ES)</h3>
+
+    <div>
+      <em>Proposal</em> (currently in review by the Spanish R users community)<br />
+
+      <ol>
+        <li>Documentation with syntax highlighting:
+
+          <ol>
+            <li>in wiki pages</li>
+
+            <li>blog posts</li>
+
+            <li>potentially forums (nor used right now, since an email list seems to be
+            the preferred option)</li>
+          </ol>
+        </li>
+
+        <li>Job offers (blog)</li>
+
+        <li>RSS feeds (offered, and fetched)</li>
+
+        <li>freetags</li>
+
+        <li>i18n (internationalization) tools</li>
+      </ol><img width="800" class="fixedSize" alt="Image" style=
+      "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display6" /><br />
+
+      <div style="text-align: center;">
+        <a rel="external nofollow" href="http://r-es.pangea.org" target="_blank" class=
+        "wiki external">http://r-es.pangea.org</a>
+      </div><br />
+    </div><br />
+    <br />
+
+    <h3 id="Example_6_-_Other_Goodies_ii_:_UEB_Knowledge_Base_Intranet_" class=
+    "showhide_heading">6.5. Example 6 - Other Goodies (ii): UEB Knowledge Base
+    (Intranet)</h3>
+
+    <div>
+      <br />
+
+      <ol>
+        <li>Wiki &amp; tracker based project management</li>
+
+        <li>Documentation</li>
+
+        <li>ToDo lists</li>
+
+        <li>several levels of user groups, with fine-grained permission system</li>
+      </ol>
+
+      <div style="text-align: center;">
+        <a rel="" href="http://ueb.ir.vhebron.net" class=
+        "wiki">http://ueb.ir.vhebron.net</a>
+      </div><br />
+      <img width="800" class="fixedSize" alt="Image" style=
+      "display:block; margin-left:auto; margin-right:auto;" src="http://ueb.ir.vhebron.net/tools/display28" /><br />
+    </div><br />
+    <br />
+
+    <h2 id="Similarities_between_R_amp_Tiki" class="showhide_heading">7. <span style=
+    "color:blue; background:">Similarities</span> between R &amp; Tiki</h2>
+
+    <div>
+      <div class="titlebar">
+        <div style="text-align: center;">
+          R &amp; Tiki Softwares
+        </div>
+      </div>
+
+      <ol>
+        <li>SVN</li>
+
+        <li>FLOSS (Free/Libre...)</li>
+
+        <li>Distributed model (R packages and Tiki mods)</li>
+
+        <li>Frequent releases of stable versions (6 months, + LTS in Tiki every few
+        years)</li>
+
+        <li>Stable version 1.0 released around a decade ago (2000 in R; 2002 in
+        Tiki).</li>
+
+        <li>Multilatform (runs on GNU/Linux, Mac, Windows, ...).</li>
+
+        <li>Oriented towards <strong>console users</strong> typing on keyboards as much
+        as possible: scripting in R &amp; wiki-wiki writing (quick) in Tiki.</li>
+
+        <li>Powerful reporting system based on layout templates and R code (R: using
+        Sweave .Rnw files in R alone; Tiki: using Smarty .tpl files (or Wiki pages) with
+        Trackers and R code).</li>
+
+        <li>"<a rel="external nofollow" href=
+        "http://www.infoworld.com/d/open-source/bossie-awards-2010-the-best-open-source-software-the-year-115"
+        target="_blank" class="wiki external">InfoWorld Bossie Awards 2010</a>" for both
+        of them: <a rel="external nofollow" href=
+        "http://www.infoworld.com/d/open-source/bossie-awards-2010-the-best-open-source-application-development-software-140&amp;current=10&amp;last=4#slideshowTop"
+        target="_blank" class="wiki external">R</a> &amp; <a rel="external nofollow"
+        href="http://www.infoworld.com/d/open-source/bossie-awards-2010-the-best-open-source-applications-150&amp;current=9"
+        target="_blank" class="wiki external">Tiki</a>!</li>
+      </ol>
+
+      <div class="titlebar">
+        <div style="text-align: center;">
+          R &amp; Tiki Communities
+        </div>
+      </div>
+
+      <ol>
+        <li>Open</li>
+
+        <li>Supportive</li>
+
+        <li>International</li>
+
+        <li>Mailman e-mail lists</li>
+
+        <li>Irc channel</li>
+
+        <li>Using your own software for your internal needs ("dogfooding")</li>
+      </ol>
+    </div><br />
+    <br />
+
+    <h2 id="Differences_between_R_amp_Tiki:_Software" class="showhide_heading">8.
+    <span style="color:green; background:">Differences</span> between R &amp; Tiki:
+    <em>Software</em></h2>
+
+    <div class="halffloat clearfix">
+      <div class="box">
+        <div class="titlebar">
+          <div style="text-align: center;">
+            R
+          </div>
+        </div><br />
+
+        <ol>
+          <li>Package system for most features<br /></li>
+
+          <li>Core team to accept changes in core</li>
+
+          <li>Allows writing code on web pages (Rapid application Development &amp;
+          documentation) with R-Studio (*in theory*)</li>
+
+          <li>Documentation: highly structured &amp; compulsory</li>
+
+          <li>License: GPL</li>
+
+          <li>Ohloh:
+
+            <ol>
+              <li>Lines: 660 k</li>
+
+              <li>Weight: 22 Mb (40Mb .exe) - 260 Mb (svn R 2.14)</li>
+
+              <li>Estimated cost: $ 7 M (179 person-years)</li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+
+      <div class="box">
+        <div class="titlebar">
+          <div style="text-align: center;">
+            Tiki
+          </div>
+        </div><br />
+
+        <ol>
+          <li>All-in-one approach for most features<br />
+          also highly integrated among them.</li>
+
+          <li>Wiki-way of doing software</li>
+
+          <li>Allows writing code on web pages (Rapid application Development &amp;
+          documentation) <strong>+ its web interface</strong></li>
+
+          <li>Documentation: Loose and community-wide effort.</li>
+
+          <li>License: <strong>L</strong>GPL</li>
+
+          <li>Ohloh:
+
+            <ol>
+              <li>Lines: 1.300 k</li>
+
+              <li>Weight: 23Mb (.tgz) - 460 Mb (svn 7x)</li>
+
+              <li>Estimated cost: $ 20 M (367 person-years)</li>
+            </ol>
+          </li>
+
+          <li>Fine-grained permission management (user groups)
+
+            <ol>
+              <li>3 levels: object, content category, global</li>
+            </ol>
+          </li>
+
+          <li>Configuration profiles
+
+            <ol>
+              <li>Community-created</li>
+
+              <li>Applicable in one click</li>
+
+              <li>Hosted at profiles.tiki.org (public)</li>
+            </ol>
+          </li>
+        </ol>
+      </div>
+    </div><br />
+    <br />
+
+    <h2 id="Differences_between_R_amp_Tiki:_Community" class="showhide_heading">9.
+    <span style="color:green; background:">Differences</span> between R &amp; Tiki:
+    <em>Community</em></h2>
+
+    <div class="halffloat clearfix">
+      <div class="box">
+        <div class="titlebar">
+          <div style="text-align: center;">
+            R
+          </div>
+        </div><br />
+
+        <ol>
+          <li>R core team (20) manages R roadmap<br />
+          <em>"R core team is a self-perpetuating oligarchy"</em> [Brian Ripley]<br />
+          <br />
+          <br />
+          <br />
+          <br /></li>
+
+          <li><strong>Not</strong> needed for LTS branch (!!!, ~ "all" are supported 2
+          y.)</li>
+
+          <li>Many bloggers about R developments</li>
+
+          <li>Many printed books</li>
+        </ol>
+      </div>
+
+      <div class="box">
+        <div class="titlebar">
+          <div style="text-align: center;">
+            Tiki
+          </div>
+        </div><br />
+
+        <ol>
+          <li>Tiki: Self-managed Community<br />
+          using Tiki + (devel) email list to help community management.<br />
+          Tiki Software Community Association (created in 2010)<br />
+          protecting trademarks, hosting of community servers, etc.</li>
+
+          <li>LTS evey few years: 3.x (2009), 6.x (2011)... (9.x likely 2013)</li>
+
+          <li>Just a few bloggers about Tiki (afaik)</li>
+
+          <li>Just 2 printed books (so far)<br />
+          <strong>BUT</strong> extensive wiki collaborative documentation early days
+          (<strong>"dogfooding!"</strong>); 1000+ pp.</li>
+        </ol>
+      </div>
+    </div><br />
+    <br />
+
+    <h2 id="Thanks._Questions_" class="showhide_heading">10. Thanks. Questions?</h2>
+
+    <div>
+      <br />
+
+      <ul>
+        <li>PDF: <a href=
+        "http://www.warwick.ac.uk/statsdept/useR-2011/abstracts/030411-depedroxavier_sanchezalex.pdf"
+        class="wiki" target=
+        "_blank">http://www.warwick.ac.uk/statsdept/useR-2011/abstracts/030411-depedroxavier_sanchezalex.pdf</a></li>
+
+        <li>Slides: <a href="http://ueb.ir.vhebron.net/2011+UseR" class="wiki" target=
+        "_blank">http://ueb.ir.vhebron.net/2011+UseR</a></li>
+
+        <li>contact: xavier.depedro<span style=
+        "color:blue; background:">@</span>vhir.org</li>
+      </ul><br />
+      <strong>Acknowledgements</strong><br />
+
+      <ul>
+        <li>Tiki Devs
+
+          <ul>
+            <li>Sylvie Greverend (FR, USA)</li>
+
+            <li>Jonny Bradley (UK)</li>
+
+            <li>Robert Plummer (USA)</li>
+
+            <li>Louis-Philippe Huberdeau (CA)</li>
+          </ul>
+        </li>
+      </ul>
+    </div><br />
+    <br />
+
+    <h2 id="References" class="showhide_heading">11. References</h2>
+
+    <div>
+      <br />
+
+      <ol>
+        <li>De Pedro, X.; Sánchez, A. (2010). Usando de forma segura R
+        ví&shy;a web con Tiki. Presentacií&sup3; comunicacií&sup3;,
+        II Jornadas (I Congreso) de Usuarios de R en castellano. Mieres, Oviedo, Spain.
+        <a href="http://r-es.pangea.org/II+Jornadas" class="wiki" target=
+        "_blank">http://r-es.pangea.org/II+Jornadas</a> - <a rel="external nofollow"
+        href="http://estbioinfo.stat.ub.es/wp-content/uploads/2010/12/RJ-II-Jornadas-R-ES-XavierdePedro.pdf"
+        target="_blank" class="wiki external">Full text</a> | <a rel="external nofollow"
+        href=
+        "http://estbioinfo.stat.ub.es/wp-content/uploads/2010/12/RJ-II-Jornadas-R-ES-XavierdePedro_diapos_v3.pdf"
+        target="_blank" class="wiki external">Slides</a></li>
+
+        <li>De Pedro, X.; Calvo, M.; Carnicer, A.; Cuadros, J.; Mií&plusmn;arro,
+        A. (2010). Assessing student activity through log analysis from computer
+        supported learning assignments. Presentació comunicació, 6º Congreso Internacional de Docencia
+        Universitaria e Innovación - VI CIDUI. Barcelona, Spain. <a rel=
+        "external nofollow" href=
+        "http://cochise.bib.ub.es/files/100701_CIDUI_Traces_poster_v07.pdf" target=
+        "_blank" class="wiki external">http://cochise.bib.ub.es</a></li>
+
+        <li>De Pedro, X.; Sánchez, A. (2011). Using R through a Tiki web
+        interface to implement bioinformatics pipelines. Poster, 19th Annual
+        International Conference on Intelligent Systems for Molecular Biology and 10th
+        European Conference on Computational Biology 2011 (ISMB/ECCB), N36. Vienna,
+        í&euro;USTRIA. <a href="http://posters.f1000.com/P1816" class="wiki"
+        target="_blank">http://posters.f1000.com/P1816</a></li>
+
+        <li>De Pedro, X. (2011). Tiki documentation: Plugin R. <a href=
+        "https://doc.tiki.org/PluginR" class="wiki" target=
+        "_blank">https://doc.tiki.org/PluginR</a></li>
+
+        <li>Nakano, J. and E.-j. Nakama (2009). Web interface to r for high-performance
+        computing. In The R UseR Conference 2009, Rennes.</li>
+
+        <li>Ooms, J. (2009). Building web applications with r. In The R UseR Conference
+        2009, Rennes.</li>
+
+        <li>R (2011). R faq. cran.r-project.org/doc/FAQ/R-FAQ.html#R-Web-Interfaces.</li>
+
+        <li>Saunders, N. (2009). A brief survey of r web interfaces. <a href=
+        "http://nsaunders.wordpress.com/2009/11/30/a-brief-survey-of-r-web-interfaces/"
+        class="wiki" target=
+        "_blank">http://nsaunders.wordpress.com/2009/11/30/a-brief-survey-of-r-web-interfaces/</a></li>
+
+        <li>Tiki (2011). Development model. <a href="https://tiki.org/Model." class=
+        "wiki" target="_blank">https://tiki.org/Model.</a></li>
+      </ol>
+    </div>
+  </div>
+</body>
+</html>

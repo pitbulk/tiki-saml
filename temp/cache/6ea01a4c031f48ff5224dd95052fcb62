@@ -1,0 +1,586 @@
+a:39:{i:0;a:2:{s:4:"help";s:602:"
+<strong>Author</strong>
+<em>author</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','author');return false;">
+		<img src="img/icons/text_signature.png" alt="Signature" width="16" height="16" title="Signature" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginAuthor" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	View author contributions to a wiki page
+</div>
+
+";s:4:"name";s:6:"AUTHOR";}i:1;a:2:{s:4:"help";s:583:"
+<strong>Box</strong>
+<em>box</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','box');return false;">
+		<img src="img/icons/layout_header.png" alt="Header" width="16" height="16" title="Header" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginBox" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Creates a formatted box with a title bar
+</div>
+
+";s:4:"name";s:3:"BOX";}i:2;a:2:{s:4:"help";s:570:"
+<strong>Center</strong>
+<em>center</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','center');return false;">
+		<img src="img/icons/text_align_center.png" alt="Center" width="16" height="16" title="Center" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginCenter" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Center text
+</div>
+
+";s:4:"name";s:6:"CENTER";}i:3;a:2:{s:4:"help";s:603:"
+<strong>Code</strong>
+<em>code</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','code');return false;">
+		<img src="img/icons/page_white_code.png" alt="Code" width="16" height="16" title="Code" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginCode" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Display code syntax with line numbers and color highlights
+</div>
+
+";s:4:"name";s:4:"CODE";}i:4;a:2:{s:4:"help";s:605:"
+<strong>Comment</strong>
+<em>comment</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','comment');return false;">
+		<img src="img/icons/comments.png" alt="Comments" width="16" height="16" title="Comments" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginComment" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Display a comment area for any specified object
+</div>
+
+";s:4:"name";s:7:"COMMENT";}i:5;a:2:{s:4:"help";s:583:"
+<strong>Div</strong>
+<em>div</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','div');return false;">
+		<img src="img/icons/script_code_red.png" alt="Red" width="16" height="16" title="Red" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginDiv" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Define and format sections of a page or text
+</div>
+
+";s:4:"name";s:3:"DIV";}i:6;a:2:{s:4:"help";s:582:"
+<strong>Definition List</strong>
+<em>dl</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','dl');return false;">
+		<img src="img/icons/text_list_bullets.png" alt="Bullets" width="16" height="16" title="Bullets" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginDL" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Create a definition list
+</div>
+
+";s:4:"name";s:2:"DL";}i:7;a:2:{s:4:"help";s:589:"
+<strong>Fade</strong>
+<em>fade</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','fade');return false;">
+		<img src="img/icons/wand.png" alt="Wand" width="16" height="16" title="Wand" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginFade" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Create a link that shows/hides initially hidden content
+</div>
+
+";s:4:"name";s:4:"FADE";}i:8;a:2:{s:4:"help";s:601:"
+<strong>Fancy List</strong>
+<em>fancylist</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','fancylist');return false;">
+		<img src="img/icons/text_list_bullets.png" alt="Bullets" width="16" height="16" title="Bullets" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginFancyList" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Create a fancy-looking list
+</div>
+
+";s:4:"name";s:9:"FANCYLIST";}i:9;a:2:{s:4:"help";s:586:"
+<strong>Fancy Table</strong>
+<em>fancytable</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','fancytable');return false;">
+		<img src="img/icons/table.png" alt="Table" width="16" height="16" title="Table" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginFancyTable" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Create a formatted table
+</div>
+
+";s:4:"name";s:10:"FANCYTABLE";}i:10;a:2:{s:4:"help";s:661:"
+<strong>File</strong>
+<em>file</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','file');return false;">
+		<img src="img/icons/file-manager.png" alt="File-manager" width="16" height="16" title="File-manager" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginFile" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Link to a file that's attached or in a file gallery or archive. See PluginFiles for more functionality.
+</div>
+
+";s:4:"name";s:4:"FILE";}i:11;a:2:{s:4:"help";s:641:"
+<strong>Files</strong>
+<em>files</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','files');return false;">
+		<img src="img/icons/large/file-manager.png" alt="File-manager" width="16" height="16" title="File-manager" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginFiles" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	List files by ID, gallery or category, or show a slideshow of image files
+</div>
+
+";s:4:"name";s:5:"FILES";}i:12;a:2:{s:4:"help";s:573:"
+<strong>Flash Video</strong>
+<em>flash</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','flash');return false;">
+		<img src="img/icons/mime/swf.png" alt="Swf" width="16" height="16" title="Swf" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginFlash" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Embed a video or audio file
+</div>
+
+";s:4:"name";s:5:"FLASH";}i:13;a:2:{s:4:"help";s:581:"
+<strong>Google Map</strong>
+<em>googlemap</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','googlemap');return false;">
+		<img src="img/icons/google.png" alt="Google" width="16" height="16" title="Google" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginGoogleMap" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Display a Google map
+</div>
+
+";s:4:"name";s:9:"GOOGLEMAP";}i:14;a:2:{s:4:"help";s:594:"
+<strong>Group</strong>
+<em>group</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','group');return false;">
+		<img src="img/icons/group.png" alt="Group" width="16" height="16" title="Group" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginGroup" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Display content based on the user's groups or friends
+</div>
+
+";s:4:"name";s:5:"GROUP";}i:15;a:2:{s:4:"help";s:617:"
+<strong>Group List</strong>
+<em>grouplist</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','grouplist');return false;">
+		<img src="img/icons/group.png" alt="Group" width="16" height="16" title="Group" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginGroupList" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	List all groups or just groups that include a certain group
+</div>
+
+";s:4:"name";s:9:"GROUPLIST";}i:16;a:2:{s:4:"help";s:617:"
+<strong>Group Stats</strong>
+<em>groupstat</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','groupstat');return false;">
+		<img src="img/icons/calculator.png" alt="Calculator" width="16" height="16" title="Calculator" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginGroupStat" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Show the distribution of users among groups
+</div>
+
+";s:4:"name";s:9:"GROUPSTAT";}i:17;a:2:{s:4:"help";s:557:"
+<strong>HTML</strong>
+<em>html</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','html');return false;">
+		<img src="img/icons/mime/html.png" alt="Html" width="16" height="16" title="Html" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginHTML" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Add HTML to a page
+</div>
+
+";s:4:"name";s:4:"HTML";}i:18;a:2:{s:4:"help";s:572:"
+<strong>Image</strong>
+<em>img</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','img');return false;">
+		<img src="img/icons/picture.png" alt="Picture" width="16" height="16" title="Picture" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginImg" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Display custom formatted images
+</div>
+
+";s:4:"name";s:3:"IMG";}i:19;a:2:{s:4:"help";s:583:"
+<strong>Include</strong>
+<em>include</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','include');return false;">
+		<img src="img/icons/page_copy.png" alt="Copy" width="16" height="16" title="Copy" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginInclude" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Include content from a wiki page
+</div>
+
+";s:4:"name";s:7:"INCLUDE";}i:20;a:2:{s:4:"help";s:578:"
+<strong>Invite</strong>
+<em>invite</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','invite');return false;">
+		<img src="img/icons/group.png" alt="Group" width="16" height="16" title="Group" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginInvite" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Invite a user to join your groups
+</div>
+
+";s:4:"name";s:6:"INVITE";}i:21;a:2:{s:4:"help";s:540:"
+<strong>Map</strong>
+<em>map</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','map');return false;">
+		<img src="img/icons/map.png" alt="Map" width="16" height="16" title="Map" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginMap" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Display a map
+</div>
+
+";s:4:"name";s:3:"MAP";}i:22;a:2:{s:4:"help";s:593:"
+<strong>Media Player</strong>
+<em>mediaplayer</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','mediaplayer');return false;">
+		<img src="img/icons/mime/avi.png" alt="Avi" width="16" height="16" title="Avi" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginMediaplayer" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Add a media player to a page
+</div>
+
+";s:4:"name";s:11:"MEDIAPLAYER";}i:23;a:2:{s:4:"help";s:571:"
+<strong>Insert Module</strong>
+<em>module</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','module');return false;">
+		<img src="img/icons/module.png" alt="Module" width="16" height="16" title="Module" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginModule" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Display a module
+</div>
+
+";s:4:"name";s:6:"MODULE";}i:24;a:2:{s:4:"help";s:604:"
+<strong>Mouseover</strong>
+<em>mouseover</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','mouseover');return false;">
+		<img src="img/icons/comment_add.png" alt="Add" width="16" height="16" title="Add" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginMouseover" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Display hidden content by mousing over a text
+</div>
+
+";s:4:"name";s:9:"MOUSEOVER";}i:25;a:2:{s:4:"help";s:575:"
+<strong>Now</strong>
+<em>now</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','now');return false;">
+		<img src="img/icons/layout_header.png" alt="Header" width="16" height="16" title="Header" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginNow" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Display the current date or time
+</div>
+
+";s:4:"name";s:3:"NOW";}i:26;a:2:{s:4:"help";s:566:"
+<strong>Quote</strong>
+<em>quote</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','quote');return false;">
+		<img src="img/icons/quotes.png" alt="Quotes" width="16" height="16" title="Quotes" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginQuote" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Format text as a quote
+</div>
+
+";s:4:"name";s:5:"QUOTE";}i:27;a:2:{s:4:"help";s:608:"
+<strong>Remarks Box</strong>
+<em>remarksbox</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','remarksbox');return false;">
+		<img src="img/icons/comment_add.png" alt="Add" width="16" height="16" title="Add" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginRemarksBox" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Displays a comment, tip, note or warning box
+</div>
+
+";s:4:"name";s:10:"REMARKSBOX";}i:28;a:2:{s:4:"help";s:562:"
+<strong>RSS Feed</strong>
+<em>rss</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','rss');return false;">
+		<img src="img/icons/rss.png" alt="Rss" width="16" height="16" title="Rss" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginRSS" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Display items from an RSS feed
+</div>
+
+";s:4:"name";s:3:"RSS";}i:29;a:2:{s:4:"help";s:558:"
+<strong>Sort</strong>
+<em>sort</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','sort');return false;">
+		<img src="img/icons/table_sort.png" alt="Sort" width="16" height="16" title="Sort" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginSort" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Sort lines of text
+</div>
+
+";s:4:"name";s:4:"SORT";}i:30;a:2:{s:4:"help";s:595:"
+<strong>Split</strong>
+<em>split</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','split');return false;">
+		<img src="img/icons/table.png" alt="Table" width="16" height="16" title="Table" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginSplit" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Easily arrange content on a page into rows and columns
+</div>
+
+";s:4:"name";s:5:"SPLIT";}i:31;a:2:{s:4:"help";s:584:"
+<strong>Subscript</strong>
+<em>sub</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','sub');return false;">
+		<img src="img/icons/text_subscript.png" alt="Subscript" width="16" height="16" title="Subscript" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginSub" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Apply subscript font to text
+</div>
+
+";s:4:"name";s:3:"SUB";}i:32;a:2:{s:4:"help";s:594:"
+<strong>Superscript</strong>
+<em>sup</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','sup');return false;">
+		<img src="img/icons/text_superscript.png" alt="Superscript" width="16" height="16" title="Superscript" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginSup" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Apply superscript font to text
+</div>
+
+";s:4:"name";s:3:"SUP";}i:33;a:2:{s:4:"help";s:561:"
+<strong>Tabs</strong>
+<em>tabs</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','tabs');return false;">
+		<img src="img/icons/tab_edit.png" alt="Edit" width="16" height="16" title="Edit" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginTabs" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Arrange content in tabs
+</div>
+
+";s:4:"name";s:4:"TABS";}i:34;a:2:{s:4:"help";s:619:"
+<strong>Transclude</strong>
+<em>transclude</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','transclude');return false;">
+		<img src="img/icons/page_copy.png" alt="Copy" width="16" height="16" title="Copy" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginTransclude" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Include the content of another page with certain changes
+</div>
+
+";s:4:"name";s:10:"TRANSCLUDE";}i:35;a:2:{s:4:"help";s:597:"
+<strong>Twitter</strong>
+<em>twitter</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','twitter');return false;">
+		<img src="img/icons/twitter.png" alt="Twitter" width="16" height="16" title="Twitter" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginTwitter" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Display the activity for a twitter account
+</div>
+
+";s:4:"name";s:7:"TWITTER";}i:36;a:2:{s:4:"help";s:593:"
+<strong>User Link</strong>
+<em>userlink</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','userlink');return false;">
+		<img src="img/icons/user_go.png" alt="Go" width="16" height="16" title="Go" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginUserlink" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Display a link to a user's information page
+</div>
+
+";s:4:"name";s:8:"USERLINK";}i:37;a:2:{s:4:"help";s:562:"
+<strong>Vimeo</strong>
+<em>vimeo</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','vimeo');return false;">
+		<img src="img/icons/vimeo.png" alt="Vimeo" width="16" height="16" title="Vimeo" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginVimeo" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Display a Vimeo video
+</div>
+
+";s:4:"name";s:5:"VIMEO";}i:38;a:2:{s:4:"help";s:578:"
+<strong>YouTube</strong>
+<em>youtube</em>
+
+	<a href="javascript:void(0);" onclick="needToConfirm=false;$('#help_sections').dialog('close');popup_plugin_form('um_data','youtube');return false;">
+		<img src="img/icons/youtube.png" alt="Youtube" width="16" height="16" title="Youtube" class="icon" />
+	</a>
+
+			<a href="http://doc.tiki.org/PluginYouTube" onclick="needToConfirm=false;" target="tikihelp" class="tikihelp"><img src="img/icons/help.png" alt="Help" width="16" height="16" title="Help" class="icon" /></a>
+	
+
+<div class="plugin-desc">
+	Display a YouTube video
+</div>
+
+";s:4:"name";s:7:"YOUTUBE";}}

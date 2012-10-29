@@ -1,0 +1,18 @@
+
+
+		<div id="module_2" style="" class="module box-logo clearfix">
+			<div id="mod-logot1" class="clearfix">
+
+   <div id="sitelogo" style="background-color: transparent;"  class="floatleft">
+      <a href="./" title="Tiki powered site"><img src="img/tiki/Tiki_WCG.png" alt="Site Logo" style="border: none" /></a>
+         </div>
+   <div id="sitetitles" class="floatleft">
+      <div id="sitetitle">
+		  	  </div>
+      <div id="sitesubtitle"></div>
+   </div>
+
+
+		</div>
+	</div>
+
