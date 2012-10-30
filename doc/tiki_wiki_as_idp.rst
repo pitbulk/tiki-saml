@@ -187,8 +187,8 @@ There is a guide that explain it at http://simplesamlphp.org/docs/stable/simples
 
 The resume:
 
- * Add the Google Apps Metadata to your IdP
- * Configure the Google Apps panel
+* Add the Google Apps Metadata to your IdP
+* Configure the Google Apps panel
 
 Add the Google Apps Metadata to your IdP
 ----------------------------------------
@@ -214,14 +214,16 @@ To connect our IdP with the Google Apps add the following data to the ``metadata
 
 `Replace <your_google_domain> (Check at your Google Apps panel) and the <attribute_used_as_identifier> (For example 'uid' or 'eduPersonPrincipalName')`
 
+`Set 'simplesaml.attributes' to false if you don't want to transfer any attribute to Google Apps, otherwise delete this parameter or set it to true`
+
 Configure the Google Apps panel
 -------------------------------
 
 Configure your Google Apps instance to look to SimpleSAMLphp-TikiWiki for single sign-on. To do this, go to the Google Apps domain management screen, click on Advanced tools, and then on Set up single sign-on (SSO). Configure the following options:
 
 * **Enable Single Sign-on** Check this box to turn on SSO for your domain.
-* **Sign-in page URL** Set this to the URL of SimpleSAMLphp’s SAML2 Redirect SSO endpoint.
-* **Sing-out page URL** Set this to the URL of SimpleSAMLphp’s SAML2 Redirect SLO endpoint.
+* **Sign-in page URL** Set this to the URL of SimpleSAMLphp's SAML2 Redirect SSO endpoint.
+* **Sing-out page URL** Set this to the URL of SimpleSAMLphp's SAML2 Redirect SLO endpoint.
 * **Change password URL** Set this to the "reset password view" URL of Tiki-Wiki. (http://<tiki-domain&path>/tiki-remind_password.php)
 * **Verification certificate** You must upload the public cert used in your simpleSAMLphp enviroment (/var/www/idp/simplesamlphp/cert/server.crt)
 
@@ -234,17 +236,100 @@ Configure your Google Apps instance to look to SimpleSAMLphp-TikiWiki for single
 Connect Salesforce with the IdP
 ===============================
 
-TODO
+There is a guide that explain how to configure Salesforce http://wiki.developerforce.com/page/Single_Sign-On_with_SAML_on_Force.com#Configuring_Force.com_for_SSO
+
+The resume:
+
+* Configure the Salesforce SSO panel
+* Add the Salesforce Metadata to your IdP
+
+
+Configure the Salesforce SSO panel
+----------------------------------
+
+Login into your Force.com org and click Setup -> Security Controls -> Single Sign-On Settings. 
+
+Click the Edit button and then check the SAML Enabled checkbox to display the input fields for the SAML.
+
+Configure:
+
+* **SAML Version** Set 2.0
+* **Identity Provider Certificate** You must upload the public cert used in your simpleSAMLphp enviroment (/var/www/idp/simplesamlphp/cert/server.crt)
+* **Issuer** 
+* **User provisioning** Check if you want to auto create users
+* **Identity Provider Login URL** Set this to the URL of SimpleSAMLphp's SAML2 Redirect SSO endpoint.
+* **Identity Provider Logout URL** Set this to the URL of SimpleSAMLphp's SAML2 Redirect SLO endpoint.
+* **Custom Error URL** If you have a page error
+* **SAML User ID Type** Set to "Assertion contains the Federation ID from the User object"
+* **SAML User ID Location**  "User ID is in an Attribute element"
+* **Atribute Name** 'email'
+* **Name ID Format** 'urn:oasis:names:tc:SAML:2.0:nameid-format:email'
+
+`To check what are the SSO and the SLO endpoints of your IdP, you have to open a browser, access to the "federation"`
+`Open a browser and access to your simplesamlphp instance (Check your apache configuration. Ex. https://<domain>/simplesamlphp)`
+`Access to the "Federation" section, there, under the "SAML 2.0 IdP Metadata" is a link to the metadata of your idp.
+`Set as 'Sign-in page URL' the 'SingleSignOnService' and as 'Sing-out page URL' the 'SingleLogoutService
+
+
+Save the data and copy the "Salesforce Login URL" (ACS)  and the "Salesforce Logout URL"
+
+Also you can download the metadata and copy the content and paste it in the simpleSAMLphp metadata converter (federation section)
+
+
+Add the Salesforce Metadata to your IdP
+---------------------------------------
+
+At the metadata folder are defined the metadatas. SPs metadatas are described at ``metadata/saml20-sp-remote.php``.
+There is a metadata template available at metadata-templates.
+
+To connect our IdP with Salesforces add the following data to the ``metadata/saml20-sp-remote.php`` file:
+
+.. code-block:: php
+
+ <?php
+
+
+  $metadata['https://saml.salesforce.com'] = array(
+      'AssertionConsumerService'   => '<salesforce_login_url>',
+      'NameIDFormat' => 'urn:oasis:names:tc:SAML:1.1:nameid-format:unspecified',
+      'attributes.NameFormat' => 'urn:oasis:names:tc:SAML:2.0:nameid-format:email',
+      'attributes' => array (
+	    0 => 'email',
+      ), 
+
+      'authproc' => array(
+          90 => array(
+              'class' => 'core:AttributeAdd',
+              'ssoStartPage' => array(
+                  '<customer_url>'
+              ),
+              'logoutURL' => array(
+                  '<salesforce_logout_url>',
+              ),
+          ),
+      ),
+
+  );
+
+
+  ?>
+
+`<customer_url> Set an URL with a view with a link to init again the login process`
+
+`The fiter is needed to support the SLO in salesforce` [`1 <https://groups.google.com/forum/#!msg/simplesamlphp/8G5K5W2KV0M/J-tRvk4h8tYJ>`_]
+`'url_when_logout>, the  logout redirect will end at this URL.`
+
+If you want to validate sings and decrypt you will need salesforce cert so you can copy the 'key' attribute from the parsed metadata
 
 
 References
-----------
+==========
 
 * `How to install simpleSAMLphp <http://simplesamlphp.org/docs/stable/simplesamlphp-install>`_
 * `How to config simpleSAMLphp as an IdP <http://simplesamlphp.org/docs/stable/simplesamlphp-idp>`_
 * `How works and configure the SQLAuth <http://simplesamlphp.org/docs/stable/sqlauth:sql>`_
 * `Adding SPs to the IdP <http://simplesamlphp.org/docs/stable/simplesamlphp-idp#section_6>`_
 * `How to connect Google Apps to a simpleSAMLphp IdP <http://simplesamlphp.org/docs/stable/simplesamlphp-googleapps>`_
-
+* `Single Sign-On with SAML on Force.com <http://wiki.developerforce.com/page/Single_Sign-On_with_SAML_on_Force.com#Configuring_Force.com_for_SSO>`_
 
 
