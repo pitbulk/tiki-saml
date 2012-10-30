@@ -133,7 +133,7 @@ Now lets create the metadata file of our IdP, create a new file ``/var/www/simpl
  <?php
 
  $metadata['https://<domain>/simplesaml/saml2/idp/metadata.php'] = array(
-        'host' => '<domain>,
+        'host' => '<domain>>',
 
         'privatekey' => 'server.pem',
         'certificate' => 'server.crt',
