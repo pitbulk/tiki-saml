@@ -103,8 +103,8 @@ Enable the server and put it on the system boot
  Centos --> service ntpd start
             chkconfig ntpd on
 
- Debian -> /etc/init.d/ntpd start
-           update-rc.d ntpd defaults
+ Debian -> /etc/init.d/ntp start
+           update-rc.d ntp defaults
 
 
 
